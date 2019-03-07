@@ -4,8 +4,8 @@ module.exports = {
         try{
             var user = await account.getProfile(req.user.ID);
             user.created_at = helper.tz(user.created_at,req.headers.timezone)
-            user.updated_at = helper.tz(user.updated_at,req.headers.timezone)
             helper.transformer(req,res,null,{profile:user});
+            user.updated_at = helper.tz(user.updated_at,req.headers.timezone)
         }catch(err){
             helper.transformer(req,res,err);
         }

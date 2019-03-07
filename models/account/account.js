@@ -293,44 +293,49 @@ module.exports = {
     },
     getProfile:async function(user_id){
         return new Promise(async (resolve,reject)=>{
-            var user = await module.exports.getUser(user_id)
-            switch(user.status){
-                case 'active':{
-                    if(user.profile_pic__doc){
-                        user.profile_pic__doc = helper.publicUrl(user.profile_pic__doc,"profile",['thumb','medium','large'])
-                    }
-                }break;
-                case 'inactive':{
-                    reject({code:"inactiveUser",message:"User is inactive, Kindly contact to support."})  
-                }break;
-                
-                case 'discard':{
-                    reject({code:"discardUser",message:"User is discared by admin."})  
-                }break;
-                
-            }
-            
-            /**
-             * @description: Get driver
-             */
-            
-            switch(user.type){
-                case 'driver':{
-                    /**
-                     * @description: Get driver
-                     */
-                    user.driver = await module.exports.getDriver(user.ID);
-                }break;
-                case 'vendor':{
-                    /**
-                     * @description: Get vendor
-                     */
+            try{
+                var user = await module.exports.getUser(user_id)
+                switch(user.status){
+                    case 'active':{
+                        if(user.profile_pic__doc){
+                            user.profile_pic__doc = helper.publicUrl(user.profile_pic__doc,"profile",['thumb','medium','large'])
+                        }
+                    }break;
+                    case 'inactive':{
+                        reject({code:"inactiveUser",message:"User is inactive, Kindly contact to support."})  
+                    }break;
                     
-                    user.vendor = await module.exports.getVendor(user.ID)
-                }break;
+                    case 'discard':{
+                        reject({code:"discardUser",message:"User is discared by admin."})  
+                    }break;
+                    
+                }
+                
+                /**
+                 * @description: Get driver
+                 */
+                
+                switch(user.type){
+                    case 'driver':{
+                        /**
+                         * @description: Get driver
+                         */
+                        user.driver = await module.exports.getDriver(user.ID);
+                    }break;
+                    case 'vendor':{
+                        /**
+                         * @description: Get vendor
+                         */
+                        
+                        user.vendor = await module.exports.getVendor(user.ID)
+                    }break;
+                }
+                
+                resolve(user);
+            }catch(err){
+                reject(err)
             }
             
-            resolve(user);
         })
         
     },
@@ -732,6 +737,7 @@ module.exports = {
             .where({"drivers.user_id":user_id})
             .first()
             .then(function(driver){
+                
                 if(driver.residence__doc){
                     driver.residence__doc = helper.publicUrl(driver.residence__doc,"residence",['thumb'])
                 }
@@ -740,6 +746,7 @@ module.exports = {
                 }
                 resolve(driver)
             }).catch(err=>{
+                
                 reject({code:"getDriver",message:err.message});    
             })           
         })
