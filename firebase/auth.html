@@ -1,0 +1,136 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDPY7Dcxb_K1m00PBNq3WBUV2RdSALWz6o",
+    authDomain: "rkcl-61038.firebaseapp.com",
+    databaseURL: "https://rkcl-61038.firebaseio.com",
+    projectId: "rkcl-61038",
+    storageBucket: "rkcl-61038.appspot.com",
+    messagingSenderId: "953040758919"
+  };
+  firebase.initializeApp(config);
+</script>
+<input type="text" id="phone" value="+919782970790"/>
+<input type="text" id="code" value="123456"/>
+<div id="recaptcha-container"></div>
+<button id="getOTP">Send otp</button>
+<button id="verifyOTP">Verify otp</button>
+
+<br/>
+<input type="text" id="email"/>
+<button id="verifyEmail">Verify email</button>
+<br/>
+<button id="withGoogle">Login with Google</button>
+<br/>
+<button id="withFacebook">Login with Facebook</button>
+<script>
+    var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container',{
+    'size': 'invisible',
+    'callback': function(response) {
+        console.log(response)
+    }
+    });
+    var accessToken;
+    function fetchProvider(email){
+        firebase.auth().fetchSignInMethodsForEmail(email)
+        .then(providers => {
+            console.log(providers)
+            xprovider(providers[0],email);
+        })
+    }
+    function xprovider(type,forceEmail=null){
+        switch(type){
+            case 'google.com' : {
+                var provider = new firebase.auth.GoogleAuthProvider();
+                provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+            } break;
+            case 'facebook.com' : {
+                var provider = new firebase.auth.FacebookAuthProvider();
+                provider.addScope('user_birthday');
+            } break;
+        }
+        var parameters = {
+            'display': 'popup'
+        }
+        if(forceEmail){
+            parameters.login_hint = forceEmail;
+        }
+        provider.setCustomParameters(parameters);
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            result = JSON.parse(JSON.stringify(result))
+            accessToken = result.user.stsTokenManager.accessToken
+            console.log(accessToken)
+        }).catch(function(error) {
+            console.log(error);
+            switch(error.code){
+                case 'auth/account-exists-with-different-credential':{
+                    fetchProvider(error.email)
+                }
+            }
+        });
+    }
+    $(document).ready(function(e){
+        $("#withGoogle").click(function(e){
+            xprovider('google.com');
+        })
+
+        $("#withFacebook").click(function(e){
+            xprovider('facebook.com');
+        })
+        
+        var cfResult;
+        $("#getOTP").click(function(e){
+            var phoneNumber = $("#phone").val();
+            firebase.auth().settings.isAppVerificationDisabledForTesting = true
+            firebase.auth().signInWithPhoneNumber(phoneNumber,appVerifier)
+            .then(function (confirmationResult) {
+                console.log(confirmationResult)
+                cfResult = confirmationResult;
+            }).catch(function (error) {
+                console.log(error)
+            });
+        })
+        $("#verifyOTP").click(function(e){
+            var code = $("#code").val();
+            cfResult.confirm(code).then(function (result) {
+                result = JSON.parse(JSON.stringify(result))
+                console.log(result.user.stsTokenManager.accessToken)
+            }).catch(function (error) {
+                console.log(error)
+            });
+        })
+        $("#verifyEmail").click(function(e){
+            var actionCodeSettings = {
+                url: 'http://localhost/firebase/auth.html',
+                handleCodeInApp: true,
+            };
+            var email = $("#email").val();
+            firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+            .then(function() {
+                window.localStorage.setItem('emailForSignIn', email);
+            })
+            .catch(function(error) {
+                // Some error occurred, you can inspect the code: error.code
+            });
+        })
+    })
+
+
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+        var email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+            email = window.prompt('Please provide your email for confirmation');
+        }
+        firebase.auth().signInWithEmailLink(email, window.location.href)
+        .then(function(result) {
+            console.log(result)
+            window.localStorage.removeItem('emailForSignIn');
+        })
+        .catch(function(error) {
+        });
+    }
+</script>
+
