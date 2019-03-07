@@ -2,13 +2,11 @@ module.exports = function(path){
     return {
         env:"development",//production
         baseUri:{
-            //development:"http://192.168.43.74:3001/",
-            development:"http://192.168.1.238:3002/",
+            development:"http://192.168.43.74:3001/",
             production:"http://192.168.43.74:3001/"
         },
         port:{
-            //development:3001,
-            development:3002,
+            development:3001,
             production:3001
         },
         database : {
