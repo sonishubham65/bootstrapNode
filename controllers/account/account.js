@@ -195,6 +195,9 @@ module.exports = {
                     if(jwt.provider=='phone'){
                         var user = await account.getUserByUID(jwt,req.user.type)
                         if(user){
+                            if(user==req.user.ID){
+                                throw ({code:"duplicateNumber",message:"This number is already using by you."})    
+                            }
                             throw ({code:"duplicateNumber",message:"This number is already registered with some user."})
                         }
                     }else{

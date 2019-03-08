@@ -201,13 +201,33 @@ module.exports = {
     sendSMS:function(countryCode,Phone,sms){
         console.error("SMS SENT",sms);
     },
-    sendEmail:async function(to,subject,message,from="Uber Eats <info@uber.com>",attachment){
+    sendEmail:async function(to,subject,message,from="Zoomcar <info@zoomcar.com>",attachment){
+        var format = `
+        <div style="width:100%; background:#eee;">
+        <div style="width:600px; padding:15px 0 30px 0;margin:15px auto;">
+            <div style="width:100%;">
+                <strong style="font-size:19px">Zoomcar</strong>
+            </div>
+            <div style="width:100%; background:#fff;padding:15px;">
+                <div style="width:100%;">
+                    `+message+`
+                </div>
+                <div style="width:100%">
+                <p>If you have any feedback for Zomato or about your ordering experience, we’d love to hear from you – simply reply to this email and we’ll be in touch.</p>
+                </div>
+                <div style="width:100%;">
+                    <p>Please do not share your Paytm password, Paytm passcode, OTP, Credit/Debit card number and CVV or any other confidential information with anyone even if he/she claims to be from Paytm. We advise our customers to completely ignore such communications.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        `;
         let mailOptions = {
             from: from,
             to: to,
             subject: subject,
             text: message,
-            html: message
+            html: format
         };
         var info = await transporter.sendMail(mailOptions)
     },

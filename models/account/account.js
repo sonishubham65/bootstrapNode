@@ -85,7 +85,6 @@ module.exports = {
                         .transacting(trx)
                         .insert({
                             user_id:ID,
-                            license_number:req.body.license_number,
                             is_verified:"no",
                         }).into('drivers')
                         .then(id=>{
@@ -98,14 +97,7 @@ module.exports = {
                         return knex
                         .transacting(trx)
                         .insert({
-                            user_id:ID,
-                            name:req.body.name,
-                            address:req.body.address,
-                            latitude:req.body.latitude,
-                            longitude:req.body.longitude,
-                            is_closed:"yes",
-                            is_verified:"no",
-                            gstin:req.body.gstin,
+                            user_id:ID
                         }).into('vendors')
                         .then(id=>{
                             return;
@@ -255,7 +247,7 @@ module.exports = {
             knex('firebase')
             .select(["ID"])
             .innerJoin("users","users.ID", "firebase.user_id")
-            .where({"uid":jwt.uid,"provider":jwt.provider,"type":type})
+            .where({"uid":jwt.uid,"type":type}) //"provider":jwt.provider
             .first()
             .then(function(user){
                 if(user){
@@ -754,7 +746,6 @@ module.exports = {
     },
     getVendor:function(user_id){
         return new Promise((resolve,reject)=>{
-            console.log(111)
             knex('vendors')
             .select(["name","opening","closing","address","latitude","longitude","is_verified","is_closed","gstin"])
             .where({"vendors.user_id":user_id})

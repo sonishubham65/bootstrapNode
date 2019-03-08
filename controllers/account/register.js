@@ -20,13 +20,18 @@ module.exports = {
                      */
                     var user_id = await account.getUserByUID(jwt,req.body.type);
                     if(user_id==null){
-                        /**
-                         * @description: Get user by code for referral
-                         */
-                        var referrer = await account.getUserByCode(req.body.referral);
+                        var referrer = null;
+                        if(req.body.referral){
+                            /**
+                             * @description: Get user by code for referral
+                             */
+                            referrer = await account.getUserByCode(req.body.referral);
+                            
+                        }
                         /**
                          * @description: add a user and Send an email as welcome email.
                          */
+                    
                         var user_id = await account.addUser(trx,jwt,req.body.type,referrer);
                         if(typeof jwt.picture !='undefined'){
                             var pic = {
@@ -34,7 +39,7 @@ module.exports = {
                             }
                             await account.updateProfilePic(trx,user_id,pic)
                         }
-                        trx.commit();
+                        await trx.commit();
                         email.welcomeEmail(user_id);
                     }
                     
@@ -42,7 +47,12 @@ module.exports = {
                     user.created_at = helper.tz(user.created_at,req.headers.timezone);
                     user.updated_at = helper.tz(user.updated_at,req.headers.timezone);
                     user.access_token = helper.jwt({ID:user.ID});
-                    helper.transformer(req,res,null,{profile:user});
+                    /**
+                     * @description: JWT encoding
+                     */
+                    var access_token = await helper.jwt({ID:user.ID})
+                    
+                    helper.transformer(req,res,null,{profile:user,access_token:access_token,message:"You are registered successfully."});
                     
                 }catch(err){
                     trx.rollback();
