@@ -113,7 +113,6 @@ module.exports = {
                                         .quality(100)
                                         .background(Jimp.rgbaToInt(255,255,255,1))
                                         .write(helper.uploadDir(uploadDir,value));
-                                        console.log('--->',size)
                                         next();
                                     }
                                 });

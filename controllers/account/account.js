@@ -28,6 +28,7 @@ module.exports = {
                         if(typeof req.files.profile_pic !='undefined'){
                             var pic = {
                                 path:req.files.profile_pic.path,
+                                name:req.files.profile_pic.name
                             };
                             if(pic){
                                 await account.updateProfilePic(trx,req.user.ID,pic);
@@ -253,6 +254,7 @@ module.exports = {
                     if(typeof req.files.profile_pic !='undefined'){
                         var pic = {
                             path:req.files.profile_pic.path,
+                            name:req.files.profile_pic.name
                         };
                         if(pic){
                             await account.updateProfilePic(trx,req.user.ID,pic);

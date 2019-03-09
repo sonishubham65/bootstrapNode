@@ -284,7 +284,6 @@ module.exports = {
 
     },
     getProfile:async function(user_id){
-        console.log("getting profile..")
         return new Promise(async (resolve,reject)=>{
             try{
                 var user = await module.exports.getUser(user_id)
@@ -349,7 +348,6 @@ module.exports = {
                 }
                 pic.uploadDir = "profile/";
                 var path = await helper.doUpload(pic,['tiny','thumb','cover','medium','large']);
-                console.log(path)
                 /**
                  * @description : Add a document
                  */
@@ -357,6 +355,7 @@ module.exports = {
                 .transacting(trx)
                 .insert({
                     user_id:user_id,
+                    name:pic.name?pic.name:pic.path.split('/').pop(),
                     filepath:path,
                     type:'profile_pic',
                     created_at:moment().format('YYYY-MM-DD HH:mm:ss'),
