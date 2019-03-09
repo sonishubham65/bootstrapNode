@@ -14,25 +14,27 @@ module.exports = function(path){
                 db:"pick",
                 host:"localhost",
                 user:"root",
-                password:""
+                password:"",
+                timezone:'Asia/Calcutta', //same as mysql timezone
             },
             production:{
                 db:"---",
                 host:"---",
                 user:"---",
-                password:"---"
+                password:"---",
+                timezone:'Asia/Calcutta', //same as mysql timezone
             },
         },
         admin:{
             ID:1
         },
-        timezone:'Asia/Calcutta', //same as mysql timezone
+        
         jwt:{
             expiresIn:60*60*30*10000,
             privateKey:"JWTEndive"
         },
         //uploadDir:"D:/nodejs/bootstrapNode/public/uploads/",
-        uploadDir:__dirname+"../public/uploads/",
+        uploadDir:__dirname+"/../public/uploads/",
         uploadSizes : {
             'thumb':[100,100],
             'medium':[500,500],

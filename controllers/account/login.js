@@ -28,7 +28,7 @@ module.exports = {
                              * Login with Email and Password
                              */
                             user_id = await account.loginWithEmail(req.body.email,req.body.password);
-                            if(!user){
+                            if(!user_id){
                                 throw ({code:"wrongPassword",message:"It seems, You have entered a wrong email and password combination, please make sure it or try forgot password."});
                             }
                         }else{
@@ -72,8 +72,8 @@ module.exports = {
     validate:async function(req){
         return new Promise((resolve,reject)=>{
             const schema = Joi.object().keys({
-                email: Joi.string().email().error(()=>"Email format is not valid."),
-                phone: Joi.string().min(8).max(15).error(()=>"Phone number must be 8-15 Char long."),
+                email: Joi.string().allow(['']).email().error((e)=>"Email format is not valid."),
+                phone: Joi.string().allow(['']).min(8).max(15).error(()=>"Phone number must be 8-15 Char long."),
                 type: Joi.number().valid(['customer','driver','vendor']).required().error(()=>"Type could be customer,driver or vendor."), 
                 password : Joi.string().error(()=>"Password is required."),
                 jwt : Joi.string().allow(['']).error(()=>"JWT is required."),
@@ -82,11 +82,11 @@ module.exports = {
             });
             
             var fields = {
-                email : req.body.email||null,
-                phone : req.body.phone||null,
+                email : req.body.email||"",
+                phone : req.body.phone||"",
                 password :  req.body.password||null,
                 type : req.body.type||null,
-                jwt : req.body.jwt,
+                jwt : req.body.jwt||"",
                 device_type : req.body.device_type||null,
                 device_token : req.body.device_token||null
             };

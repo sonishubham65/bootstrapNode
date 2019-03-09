@@ -1,3 +1,25 @@
+// knex.transaction(async function(trx){
+//     return await new Promise(async (resolve,reject)=>{
+//         try{
+//             trx.commit()
+//                 helper.transformer(req,res,null,{profile:user});
+//             
+//         }catch(err){
+//             trx.rollback();
+//             helper.transformer(req,res,err);
+//         }                  
+//     })
+// })
+
+
+
+// try{
+//     await module.exports.validate.index(req);
+//      helper.transformer(req,res,null,{profile:user});
+    
+// }catch(err){
+//     helper.transformer(req,res,err);   
+// }
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('pick', 'root', '', {
   host: 'localhost',

@@ -1,25 +1,3 @@
-// knex.transaction(async function(trx){
-//     return await new Promise(async (resolve,reject)=>{
-//         try{
-//             trx.commit()
-//                 helper.transformer(req,res,null,{profile:user});
-//             
-//         }catch(err){
-//             trx.rollback();
-//             helper.transformer(req,res,err);
-//         }                  
-//     })
-// })
-
-
-
-// try{
-//     await module.exports.validate.index(req);
-//      helper.transformer(req,res,null,{profile:user});
-    
-// }catch(err){
-//     helper.transformer(req,res,err);   
-// }
 var uniqid = require('uniqid');
 var jwt = require('jsonwebtoken');
 const nodemailer = require("nodemailer");
@@ -34,8 +12,9 @@ let transporter = nodemailer.createTransport({
   });
 module.exports = {
     tz:function(date,to){
+        var timezone = config.database[config.env].timezone;
         if(to){
-            date = moment.tz(date,config.timezone).tz(to);
+            date = moment.tz(date,timezone).tz(to);
         }else{
             date = moment(date);
         }
@@ -203,20 +182,20 @@ module.exports = {
     },
     sendEmail:async function(to,subject,message,from="Zoomcar <info@zoomcar.com>",attachment){
         var format = `
-        <div style="width:100%; background:#eee;">
+        <div style="width:100%; background:#eee;font-family: inherit;font-size: 16px;">
         <div style="width:600px; padding:15px 0 30px 0;margin:15px auto;">
             <div style="width:100%;">
-                <strong style="font-size:19px">Zoomcar</strong>
+                <strong style="font-size:19px"><img style="height: 26px; margin:15px 0" src="`+config.baseUri[config.env]+`images/logo.png"/></strong>
             </div>
-            <div style="width:100%; background:#fff;padding:15px;">
+            <div style="width: 100%;background: #fff;padding: 24px;font-family: sans-serif;letter-spacing: 0.3px;">
                 <div style="width:100%;">
                     `+message+`
                 </div>
                 <div style="width:100%">
-                <p>If you have any feedback for Zomato or about your ordering experience, we’d love to hear from you – simply reply to this email and we’ll be in touch.</p>
+                <p>If you have any feedback for Visual studio code or about your ordering experience, we’d love to hear from you – simply reply to this email and we’ll be in touch.</p>
                 </div>
                 <div style="width:100%;">
-                    <p>Please do not share your Paytm password, Paytm passcode, OTP, Credit/Debit card number and CVV or any other confidential information with anyone even if he/she claims to be from Paytm. We advise our customers to completely ignore such communications.</p>
+                    <p>Please do not share your Visual studio code password, Paytm passcode, OTP, Credit/Debit card number and CVV or any other confidential information with anyone even if he/she claims to be from Paytm. We advise our customers to completely ignore such communications.</p>
                 </div>
             </div>
         </div>
