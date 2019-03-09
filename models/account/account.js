@@ -284,6 +284,7 @@ module.exports = {
 
     },
     getProfile:async function(user_id){
+        console.log("getting profile..")
         return new Promise(async (resolve,reject)=>{
             try{
                 var user = await module.exports.getUser(user_id)
@@ -337,12 +338,18 @@ module.exports = {
                 /**
                  * validate profile image and upload
                  */
-                var validation = await helper.validateUpload(pic);
+                var validation = await helper.validateUpload(pic,{
+                    minSize:[100,100],
+                    maxSize:[2000,1500],
+                    format:['jpg','jpeg','png','gif','bmp','heic','heif'],
+                    message:'Profile pic must be in correct format and allowed dimensions under 100*100 - 2000*1500.'
+                });
                 if(validation){
                     throw ({code:'ValidationError',field:"profile_pic","message":validation});
                 }
                 pic.uploadDir = "profile/";
                 var path = await helper.doUpload(pic,['tiny','thumb','cover','medium','large']);
+                console.log(path)
                 /**
                  * @description : Add a document
                  */

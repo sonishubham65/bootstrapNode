@@ -36,8 +36,8 @@ global.urlUtil = require('url');
 require("moment-timezone")
 moment.tz.setDefault(config.timezone);
 
-var email = require("./models/account/email");
-email.welcomeEmail(35);
+// var email = require("./models/account/email");
+// email.welcomeEmail(35);
 
 var app = express();
 // view engine setup

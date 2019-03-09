@@ -46,7 +46,7 @@ module.exports = {
                      * @description: Insert devices
                      */
                     await account.upsertDevice(trx,user_id,req.body.device_type,req.body.device_token);
-                    trx.commit();
+                    await trx.commit();
                     /**
                      * @description: Get complete profile
                      */

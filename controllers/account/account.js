@@ -33,7 +33,7 @@ module.exports = {
                                 await account.updateProfilePic(trx,req.user.ID,pic);
                             }
                         }
-                        trx.commit();
+                        await trx.commit();
                         var user = await account.getProfile(req.user.ID);
                         user.created_at = helper.tz(user.created_at,req.headers.timezone)
                         user.updated_at = helper.tz(user.updated_at,req.headers.timezone)
@@ -79,7 +79,7 @@ module.exports = {
                                 await account.updateLicense(trx,req.user.ID,pic)
                             }
                         }
-                        trx.commit()
+                        await trx.commit()
                         var user = await account.getProfile(req.user.ID);
                         user.created_at = helper.tz(user.created_at,req.headers.timezone)
                         user.updated_at = helper.tz(user.updated_at,req.headers.timezone)
@@ -103,7 +103,7 @@ module.exports = {
                         await module.exports.validate.vendor(req)
                         await account.editVendor(trx,req.user.ID,req)
                         
-                        trx.commit()
+                        await trx.commit()
                         var user = await account.getProfile(req.user.ID)
                         console.log(1)
                         user.created_at = helper.tz(user.created_at,req.headers.timezone)
@@ -204,7 +204,7 @@ module.exports = {
                         throw ({code:"incorrectProvider",message:"Access token provider is not accessible."})
                     }
                     await account.updatePhone(trx,req.user.ID,jwt);
-                    trx.commit();
+                    await trx.commit();
                     helper.transformer(req,res,null,{message:"Phone number updated successfully."});
                     
                 }catch(err){
@@ -233,7 +233,7 @@ module.exports = {
                         throw ({code:"incorrectProvider",message:"Access token provider is not accessible."})
                     }
                     await account.updateEmail(trx,req.user.ID,jwt);
-                    trx.commit();
+                    await trx.commit();
                     helper.transformer(req,res,null,{message:"Email has been updated successfully."});
                     
                 }catch(err){
@@ -260,7 +260,7 @@ module.exports = {
                     }else{
                         throw({code:"noimage",message:"Kindly select an image to update profile pic."})
                     }
-                    trx.commit();
+                    await trx.commit();
                     var user = await account.getProfile(req.user.ID);
                     user.created_at = helper.tz(user.created_at,req.headers.timezone)
                     user.updated_at = helper.tz(user.updated_at,req.headers.timezone)

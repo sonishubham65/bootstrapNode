@@ -63,7 +63,7 @@ module.exports = {
             }
         })
     },
-    jwtVerify:function(access_token,callback){
+    jwtVerify:function(access_token){
         return new Promise((resolve,reject)=>{
             try{
                 var token = jwt.verify(access_token, config.jwt.privateKey, function(err, data) {
@@ -86,10 +86,9 @@ module.exports = {
     },
     doUpload:function(pic,sizes){
         return new Promise((resolve,reject)=>{
-                /**
+            /**
              * Upload an image
              */
-            
             Jimp.read(pic.path, (err, lenna) => {
                 if(err){
                     reject(err);
@@ -114,6 +113,7 @@ module.exports = {
                                         .quality(100)
                                         .background(Jimp.rgbaToInt(255,255,255,1))
                                         .write(helper.uploadDir(uploadDir,value));
+                                        console.log('--->',size)
                                         next();
                                     }
                                 });
@@ -136,14 +136,28 @@ module.exports = {
         })
         
     },
-    validateUpload:function(pic){
+    validateUpload:function(pic,option={}){
+        var temp = {
+            minSize:[100,100],
+            maxSize:[2000,1500],
+            format:['jpg','jpeg','png','gif','bmp','heic','heif'],
+            message:'Image must be in correct format and allowed dimensions under 100*100 - 2000*1500.'
+        };
         return new Promise((resolve,reject)=>{
             try{
+                var keys = Object.keys(temp);
+                for(i=0;i<keys.length;i++){
+                    var key = keys[i];
+                    if(typeof option[key] =='undefined'){
+                        option[key] = temp[key] ;
+                    }
+                }
+                
                 const schema = Joi.image()
-                .minDimensions(100, 100)
-                .maxDimensions(2000,2000)
-                .allowTypes(['jpg','jpeg','png','gif','bmp','heic','heif'])
-                .error(()=>"Profile pic must be in correct format and dimensions.");
+                .minDimensions(option.minSize[0], option.minSize[1])
+                .maxDimensions(option.maxSize[0],option.maxSize[1])
+                .allowTypes(option.format)
+                .error(()=>option.message);
                 
                 var parse = urlUtil.parse(pic.path,true ,true)
                 
@@ -175,6 +189,7 @@ module.exports = {
                     }
                 }))
             }catch(err){
+                console.log(err)
                 resolve(err);
             }
             
@@ -208,7 +223,7 @@ module.exports = {
     sendEmail:async function(to,subject,message,from="VScode <info@vscode.com>",attachment){
         try{
             var format = `
-            <div style="width:100%; background:#eee;font-family: inherit;font-size: 16px;">
+            <div style="width:100%; background:#eee;font-family: inherit;font-size: 14px;">
             <div style="width:600px; padding:15px 0 30px 0;margin:15px auto;">
                 <div style="width:100%;">
                     <strong style="font-size:19px"><img style="height: 26px; margin:15px 0" src="`+config.baseUri[config.env]+`images/logo.png"/></strong>
