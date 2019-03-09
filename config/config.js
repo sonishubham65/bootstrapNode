@@ -22,7 +22,7 @@ module.exports = function(path){
                 host:"---",
                 user:"---",
                 password:"---",
-                timezone:'Asia/Calcutta', //same as mysql timezone
+                timezone:'----', //same as mysql timezone
             },
         },
         admin:{
@@ -36,9 +36,11 @@ module.exports = function(path){
         //uploadDir:"D:/nodejs/bootstrapNode/public/uploads/",
         uploadDir:__dirname+"/../public/uploads/",
         uploadSizes : {
+            'tiny':[50,50],
             'thumb':[100,100],
-            'medium':[500,500],
-            'large':[800,800]
+            'cover':[300,150],
+            'medium':[500,400],
+            'large':[800,500]
         },
         referral:{
             customer:{

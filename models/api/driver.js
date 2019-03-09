@@ -156,7 +156,41 @@ module.exports = {
             callback({code:"deletedriver",message:err.message})
         })
     },
-    uploaddriverImage:function(user_id,pic,callback){
+    uploadDriverImage:function(user_id,pic,callback){
+        return new Promise(async (resolve,reject)=>{
+            try{
+                /**
+                 * validate driver image and upload
+                 */
+                var validation = await helper.validateUpload(pic);
+                if(validation){
+                    throw ({code:'ValidationError',field:"profile_pic","message":validation});
+                }
+                pic.uploadDir = "driver/";
+                var path = await helper.doUpload(pic,['tiny','thumb']);
+                /**
+                 * @description : Add a document
+                 */
+                knex
+                .transacting(trx)
+                .insert({
+                    user_id:user_id,
+                    filepath:path,
+                    type:'driver',
+                    created_at:moment().format('YYYY-MM-DD HH:mm:ss'),
+                }, 'ID')
+                .into('documents')
+                .then(function(ID) {
+                    document_id = ID[0];
+                    resolve();
+                })
+                .catch(function(err){
+                    reject ({code:"updateProfilePic",message:err.message})
+                })
+            }catch(err){
+                reject(err);
+            }
+        })
         async.waterfall([function(callback){
             /**
              * validate driver image and upload

@@ -290,7 +290,7 @@ module.exports = {
                 switch(user.status){
                     case 'active':{
                         if(user.profile_pic__doc){
-                            user.profile_pic__doc = helper.publicUrl(user.profile_pic__doc,"profile",['thumb','medium','large'])
+                            user.profile_pic__doc = helper.publicUrl(user.profile_pic__doc,"profile",['tiny','thumb','cover','medium','large'])
                         }
                     }break;
                     case 'inactive':{
@@ -332,26 +332,17 @@ module.exports = {
         
     },
     updateProfilePic:function(trx,user_id,pic){
-        return new Promise((resolve,reject)=>{
-            async.waterfall([function(callback){
+        return new Promise(async (resolve,reject)=>{
+            try{
                 /**
                  * validate profile image and upload
                  */
-                helper.validateUpload(pic,function(err){
-                    pic.uploadDir = "profile/";
-                    if(err){
-                        callback({code:'ValidationError',field:"profile_pic","message":err});
-                    }else{
-                        helper.doUpload(pic,['thumb','medium','large'],function(err,path){
-                            if(err){
-                                callback({code:'Jimp',field:"profile_pic","message":err});
-                            }else{
-                                callback(null,path);
-                            }
-                        })
-                    }
-                });
-            },function(image,callback){
+                var validation = await helper.validateUpload(pic);
+                if(validation){
+                    throw ({code:'ValidationError',field:"profile_pic","message":validation});
+                }
+                pic.uploadDir = "profile/";
+                var path = await helper.doUpload(pic,['tiny','thumb','cover','medium','large']);
                 /**
                  * @description : Add a document
                  */
@@ -359,7 +350,7 @@ module.exports = {
                 .transacting(trx)
                 .insert({
                     user_id:user_id,
-                    filepath:image,
+                    filepath:path,
                     type:'profile_pic',
                     created_at:moment().format('YYYY-MM-DD HH:mm:ss'),
                 }, 'ID')
@@ -375,22 +366,16 @@ module.exports = {
                         updated_at:moment().format('YYYY-MM-DD HH:mm:ss')
                     }).where({'ID':user_id})
                     .then(id=>{
-                        callback();
+                        resolve();
                     })
                 })
                 .catch(function(err){
-                    reject ({code:"updateProfilePic",message:err.message})
+                    reject({code:"updateProfilePic",message:err.message})
                 })
-                
-            }],function(err){
-                if(err){
-                    reject (err);
-                }else{
-                    resolve()
-                }
-            })
+            }catch(err){
+                reject(err);
+            }
         })
-        
     },
     verifyPassword:function(user_id,password){
         return new Promise((resolve,reject)=>{
