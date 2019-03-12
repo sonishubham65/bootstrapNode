@@ -72,21 +72,21 @@ module.exports = {
     validate:async function(req){
         return new Promise((resolve,reject)=>{
             const schema = Joi.object().keys({
-                email: Joi.string().allow(['']).email().error((e)=>"Email format is not valid."),
-                phone: Joi.string().allow(['']).min(8).max(15).error(()=>"Phone number must be 8-15 Char long."),
+                email: Joi.string().allow([null]).email().error((e)=>"Email format is not valid."),
+                phone: Joi.string().allow([null]).min(8).max(15).error(()=>"Phone number must be 8-15 Char long."),
                 type: Joi.number().valid(['customer','driver','vendor']).required().error(()=>"Type could be customer,driver or vendor."), 
-                password : Joi.string().error(()=>"Password is required."),
-                jwt : Joi.string().allow(['']).error(()=>"JWT is required."),
+                password : Joi.string().allow([null]).error(()=>"Password is required."),
+                jwt : Joi.string().allow([null]).error(()=>"JWT is required."),
                 device_type : Joi.string().valid(['android','iOS','web','']).error(()=>"Device type could be android,iOS,web."),
                 device_token : Joi.string().allow([null]).error((err)=>"Device token must be a string."),
             });
             
             var fields = {
-                email : req.body.email||"",
-                phone : req.body.phone||"",
+                email : req.body.email||null,
+                phone : req.body.phone||null,
                 password :  req.body.password||null,
                 type : req.body.type||null,
-                jwt : req.body.jwt||"",
+                jwt : req.body.jwt||null,
                 device_type : req.body.device_type||null,
                 device_token : req.body.device_token||null
             };

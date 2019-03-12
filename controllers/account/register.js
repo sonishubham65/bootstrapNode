@@ -18,6 +18,7 @@ module.exports = {
                     /**
                      * @description: Get user by UID and check if it is already registered or not with type
                      */
+                    var message;
                     var user_id = await account.getUserByUID(jwt,req.body.type);
                     if(user_id==null){
                         var referrer = null;
@@ -41,6 +42,9 @@ module.exports = {
                         }
                         await trx.commit();
                         email.welcomeEmail(user_id);
+                        message = "You are registered successfully."
+                    }else{
+                        message = "You are already registered. You are logged In."
                     }
                     
                     var user = await account.getProfile(user_id);
@@ -52,7 +56,7 @@ module.exports = {
                      */
                     var access_token = await helper.jwt({ID:user.ID})
                     
-                    helper.transformer(req,res,null,{profile:user,access_token:access_token,message:"You are registered successfully."});
+                    helper.transformer(req,res,null,{profile:user,access_token:access_token,message:message});
                     
                 }catch(err){
                     trx.rollback();

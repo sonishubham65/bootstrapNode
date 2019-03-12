@@ -25,6 +25,7 @@ router.post('/logout',function(req,res,next){
 });
 //router.group
 router.post('/profile',function(req,res,next){
+    console.log(11,'--->');
     account.index(req,res,next);
 });
 router.post('/profile/edit',function(req,res,next){
