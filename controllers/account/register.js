@@ -46,7 +46,6 @@ module.exports = {
                     }else{
                         message = "You are already registered. You are logged In."
                     }
-                    
                     var user = await account.getProfile(user_id);
                     user.created_at = helper.tz(user.created_at,req.headers.timezone);
                     user.updated_at = helper.tz(user.updated_at,req.headers.timezone);

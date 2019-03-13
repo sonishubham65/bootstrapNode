@@ -10,7 +10,6 @@ module.exports = function(config){
         },
         //debug:true,
         pool: { min: 0, max: 7 },
-        
     });
 }
 

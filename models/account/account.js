@@ -349,7 +349,7 @@ module.exports = {
                 pic.uploadDir = "profile/";
                 var path = await helper.doUpload(pic,['tiny','thumb','cover','medium','large']);
                 /**
-                 * @description : Add a document
+                 * @description : Add a document.
                  */
                 knex
                 .transacting(trx)

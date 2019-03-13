@@ -15,6 +15,5 @@ module.exports = {
                 reject(err)
             })
         })
-
     },
 }

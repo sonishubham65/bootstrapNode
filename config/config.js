@@ -71,5 +71,4 @@ module.exports = function(path){
             pass:'P@ss@123'
         }
     }
-
 }

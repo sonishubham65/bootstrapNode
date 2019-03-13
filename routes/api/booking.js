@@ -5,8 +5,5 @@ var auth = require("../../controllers/account/auth");
 router.use(function(req,res,next){
     auth.index(req,res,next)
 });
-
-
-
 module.exports = router;
 

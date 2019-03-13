@@ -10,7 +10,5 @@ var account = require("../../controllers/account/account");
 router.post('/edit',function(req,res,next){
     account.edit.driver(req,res,next);
 });
-
-
 module.exports = router;
 
