@@ -46,4 +46,3 @@ router.post('/update/email',function(req,res,next){
     account.email(req,res,next);
 });
 module.exports = router;
-
