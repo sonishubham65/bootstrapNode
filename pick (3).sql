@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2019 at 03:41 AM
+-- Generation Time: Mar 13, 2019 at 02:36 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -200,7 +200,52 @@ INSERT INTO `documents` (`ID`, `user_id`, `name`, `filepath`, `type`, `size`, `i
 (207, 26, NULL, '15518927733163c2u213hkjsxgvzk4.jpeg', 'profile_pic', NULL, 'no', '2019-03-06 22:49:34', '2019-03-06 22:49:34'),
 (208, 26, NULL, '15518927982403c2u213hkjsxgwisg.jpeg', 'profile_pic', NULL, 'no', '2019-03-06 22:49:58', '2019-03-06 22:49:58'),
 (209, 26, NULL, '15518929533893c2u212c0jsxgzui6.jpeg', 'profile_pic', NULL, 'no', '2019-03-06 22:52:33', '2019-03-06 22:52:33'),
-(211, 28, NULL, '15518931818813c2u213bkjsxh4qt6.jpeg', 'profile_pic', NULL, 'no', '2019-03-06 22:56:22', '2019-03-06 22:56:22');
+(212, 26, NULL, '15519279307843c2u214k8jsy1tj8h.jpeg', 'profile_pic', NULL, 'no', '2019-03-07 08:35:31', '2019-03-07 08:35:31'),
+(217, 26, NULL, '15520715188713c2u214vcjt0fb4ig.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 00:28:39', '2019-03-09 00:28:39'),
+(218, 37, NULL, '15521061344293c2u2122kjt0zx21q.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:05:34', '2019-03-09 10:05:34'),
+(219, 37, NULL, '15521063768493c2u2124cjt10293m.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:09:37', '2019-03-09 10:09:37'),
+(220, 37, NULL, '15521064649523c2u2124cjt10452w.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:11:05', '2019-03-09 10:11:05'),
+(221, 37, NULL, '15521064871583c2u2124cjt104m7q.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:11:27', '2019-03-09 10:11:27'),
+(222, 37, NULL, '15521065955553c2u2124cjt106xur.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:13:15', '2019-03-09 10:13:15'),
+(223, 37, NULL, '15521066673853c2u211lsjt108ha2.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:14:27', '2019-03-09 10:14:27'),
+(224, 37, NULL, '15521069919923c2u211wgjt10ffqy.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:19:52', '2019-03-09 10:19:52'),
+(225, 37, NULL, '15521070257363c2u2150ojt10g5sa.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:20:26', '2019-03-09 10:20:26'),
+(229, 37, NULL, '15521071469163c2u212o8jt10irad.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:22:27', '2019-03-09 10:22:27'),
+(232, 37, NULL, '15521071879713c2u213swjt10jmyt.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:23:08', '2019-03-09 10:23:08'),
+(233, 37, NULL, '15521072492703c2u214pkjt10ky9k.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:24:09', '2019-03-09 10:24:09'),
+(234, 37, NULL, '15521072965803c2u21vcjt10lyrp.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:24:56', '2019-03-09 10:24:57'),
+(235, 37, NULL, '15521073134283c2u21534jt10mbrp.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:25:13', '2019-03-09 10:25:13'),
+(236, 37, NULL, '15521073361803c2u21534jt10mtbo.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:25:36', '2019-03-09 10:25:36'),
+(237, 37, NULL, '15521073506263c2u21534jt10n4gy.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:25:50', '2019-03-09 10:25:50'),
+(238, 37, NULL, '15521073828053c2u21534jt10ntat.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:26:23', '2019-03-09 10:26:23'),
+(239, 37, NULL, '15521073908703c2u21534jt10nziu.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:26:31', '2019-03-09 10:26:31'),
+(240, 37, NULL, '15521074124143c2u21a0jt10og5b.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:26:52', '2019-03-09 10:26:52'),
+(241, 37, NULL, '15521074252243c2u214ssjt10oq16.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:27:05', '2019-03-09 10:27:05'),
+(242, 37, NULL, '15521074357773c2u214ssjt10oy69.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:27:15', '2019-03-09 10:27:15'),
+(243, 37, NULL, '15521074426803c2u214ssjt10p3i0.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:27:22', '2019-03-09 10:27:22'),
+(244, 37, NULL, '15521075983133c2u215agjt10sfl6.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:29:58', '2019-03-09 10:29:58'),
+(247, 37, NULL, '15521083225093c2u2145kjt117ydq.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:42:03', '2019-03-09 10:42:03'),
+(248, 37, NULL, '15521083364993c2u2145kjt11896b.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:42:17', '2019-03-09 10:42:17'),
+(249, 37, NULL, '15521083753683c2u211mcjt119361.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:42:56', '2019-03-09 10:42:56'),
+(256, 37, NULL, '15521090705633c2u215i8jt11nzl0.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:54:31', '2019-03-09 10:54:31'),
+(257, 37, NULL, '15521091332633c2u21r4jt11pbyo.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 10:55:34', '2019-03-09 10:55:34'),
+(260, 40, NULL, '15521171424393c2u213v4jt16gzvs.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:09:03', '2019-03-09 13:09:03'),
+(261, 40, NULL, '15521173098363c2u21jojt16kl1p.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:11:50', '2019-03-09 13:11:50'),
+(262, 40, NULL, '15521173751253c2u21jojt16lzf9.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:12:56', '2019-03-09 13:12:56'),
+(263, 40, NULL, '15521174353553c2u21jojt16n9wb.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:13:56', '2019-03-09 13:13:56'),
+(264, 40, NULL, '15521174442283c2u21jojt16ngqs.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:14:05', '2019-03-09 13:14:05'),
+(265, 40, NULL, '15521174536193c2u21jojt16nnzn.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:14:15', '2019-03-09 13:14:15'),
+(266, 40, NULL, '15521174671843c2u21jojt16nygg.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:14:29', '2019-03-09 13:14:29'),
+(267, 40, NULL, '15521175430113c2u2141kjt16pkys.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:15:45', '2019-03-09 13:15:45'),
+(268, 40, NULL, '15521176138993c2u2141kjt16r3nv.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:16:56', '2019-03-09 13:16:56'),
+(269, 40, NULL, '15521176468473c2u2141kjt16rt33.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:17:29', '2019-03-09 13:17:29'),
+(270, 40, NULL, '15521176773173c2u21544jt16sgli.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:18:00', '2019-03-09 13:18:00'),
+(271, 40, NULL, '15521176961413c2u215j0jt16sv4e.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:18:20', '2019-03-09 13:18:20'),
+(272, 40, NULL, '15521178560293c2u211i4jt16wahq.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:20:57', '2019-03-09 13:20:57'),
+(273, 40, NULL, '15521179554653c2u2151gjt16yf7v.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:22:36', '2019-03-09 13:22:36'),
+(274, 40, 'download.jpg', '15521180689943c2u215f4jt170utf.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:24:29', '2019-03-09 13:24:30'),
+(276, 40, 'download.jpg', '15521187378493c2u212zwjt17f6wq.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:35:38', '2019-03-09 13:35:38'),
+(277, 42, 'photo.jpg', '15521187582503c2u212zwjt17fmne.jpeg', 'profile_pic', NULL, 'no', '2019-03-09 13:36:00', '2019-03-09 13:36:00');
 
 -- --------------------------------------------------------
 
@@ -249,10 +294,14 @@ CREATE TABLE `firebase` (
 --
 
 INSERT INTO `firebase` (`firebase_id`, `user_id`, `provider`, `uid`, `created_at`, `updated_at`) VALUES
-(2, 26, 'google.com', 'gOaRhAPOGAb5S50tteYOGPr9phQ211', '2019-02-27 04:09:21', '2019-02-27 04:09:21'),
-(12, 26, 'phone', 'etN69gLB2pO4jqhYcZDXOoFjsMa2', '2019-02-27 17:38:28', '2019-03-01 17:40:48'),
-(13, 26, 'password', 'gOaRhAPOGAb5S50tteYOGPr9phQ211', '2019-02-27 17:38:34', '2019-02-27 17:38:34'),
-(15, 28, 'google.com', 'gOaRhAPOGAb5S50tteYOGPr9phQ2', '2019-03-06 17:26:17', '2019-03-06 17:26:17');
+(2, 26, 'google.com', 'ihcx2VYmwhS66QXkry72SSnlLbM2', '2019-02-27 04:09:21', '2019-02-27 04:09:21'),
+(26, 26, 'phone', 'etN69gLB2pO4jqhYcZDXOoFjsMa2', '2019-03-07 03:06:18', '2019-03-07 03:06:18'),
+(29, 26, 'password', 'ihcx2VYmwhS66QXkry72SSnlLbM2', '2019-03-07 03:15:52', '2019-03-07 16:25:09'),
+(36, 34, 'password', 'P1pmOLPhdmTmt74HTG8f1jJ3N122', '2019-03-08 18:32:05', '2019-03-08 18:32:05'),
+(37, 35, 'password', 'je3nMQDvfxYIFLNupgcU7FDuDCK2', '2019-03-08 18:34:51', '2019-03-08 18:34:51'),
+(39, 37, 'password', 'vAcQ6fXK2UPAfcjSHMZy6O8zZ8j1', '2019-03-09 04:24:06', '2019-03-09 04:24:06'),
+(42, 40, 'password', 'uTY5vwiiwRbG9WCf7kjnHAgtPry1', '2019-03-09 07:25:17', '2019-03-09 07:25:17'),
+(44, 42, 'google.com', 'ihcx2VYmwhS66QXkry72SSnlLbM2', '2019-03-09 08:05:55', '2019-03-09 08:05:55');
 
 -- --------------------------------------------------------
 
@@ -343,8 +392,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`ID`, `referrer`, `firstname`, `lastname`, `email`, `email_verified`, `password`, `country_id`, `phone`, `city`, `address`, `profile_pic__doc`, `referral`, `type`, `rating`, `created_at`, `updated_at`, `status`) VALUES
 (1, 0, 'John', 'Doe', 'john@mailinator.com', 'yes', '8cb2237d0679ca88db6464eac60da96345513964', 2, '+919782000000', 'London', 'B-6, valey Rd, London', 1, 'RCADMIN', 'admin', 7.9, '2019-02-26 16:39:04', '2019-02-26 16:39:04', 'active'),
-(26, 1, 'Shúbhamxx', 'soni', 'sonishubham65@gmail.com', 'yes', 'f91e15dbec69fc40f81f0876e7009648', 1, '+919782970790', 'London', 'MX A 68, 69 Sunder singh', 209, '_N_JkjqdI', 'customer', 0.0, '2019-03-06 17:22:33', '2019-03-06 17:22:33', 'active'),
-(28, 1, 'Shubham Soni', NULL, 'sonishubham65@gmail.com', 'yes', NULL, NULL, NULL, NULL, NULL, 211, '4kcmaMbdH', 'customer', NULL, '2019-03-06 17:26:22', '2019-03-06 17:26:22', 'active');
+(26, 1, 'Shúbhamxx', 'soni', 'sonishubham65@gmail.com', 'yes', '22d912d8004b31868870c2c88c047464', 1, '+919782970790', 'London', 'MX A 68, 69 Sunder singh', 217, '_N_JkjqdI', 'customer', 0.0, '2019-03-08 18:58:40', '2019-03-08 18:58:40', 'active'),
+(34, NULL, NULL, NULL, 'shubham@mailinator.com', 'yes', NULL, NULL, NULL, NULL, NULL, NULL, '7e55vnImo', 'vendor', NULL, '2019-03-08 18:32:05', '2019-03-08 18:32:05', 'active'),
+(35, NULL, NULL, NULL, 'naveen@mailinator.com', 'yes', NULL, NULL, NULL, NULL, NULL, NULL, 'cEix16RoU', 'vendor', NULL, '2019-03-08 18:34:51', '2019-03-08 18:34:51', 'active'),
+(37, NULL, 'Anjali', 'Kumawat', 'anjali@mailinator.com', 'yes', NULL, 1, NULL, 'Jaipur', 'MX A 68, 69 Sunder singh', 257, 'HYvx3rumw', 'vendor', NULL, '2019-03-09 05:25:34', '2019-03-09 05:25:34', 'active'),
+(40, NULL, 'Dhaval', 'Kumar', 'dhaval@mailinator.com', 'yes', NULL, 1, NULL, 'Jaipur', 'MX A 68, 69 Sunder singh', 276, 'Hn1JOR4RH', 'vendor', NULL, '2019-03-09 08:05:38', '2019-03-09 08:05:38', 'active'),
+(42, NULL, 'Shubham Soni', NULL, 'sonishubham65@gmail.com', 'yes', NULL, NULL, NULL, NULL, NULL, 277, '9BGdrdb75', 'vendor', NULL, '2019-03-09 08:06:00', '2019-03-09 08:06:00', 'active');
 
 -- --------------------------------------------------------
 
@@ -365,7 +418,7 @@ CREATE TABLE `user_devices` (
 --
 
 INSERT INTO `user_devices` (`ID`, `user_id`, `type`, `token`, `created_at`) VALUES
-(16, 26, 'iOS', 'dG-wiJ_2_mg:APA91bFobJUSPDttzLc-gbi8FwNn2lsOc7VlmI343LMN3oh2zoceA9FeCXIEesACyM5x7eiCDY51-lPCkSuZoMde_Ade-Hmd-T7zsMItyJd-jdEKsjFKo3mZrpG0hp3fIUhkXrZGxLI_', '2019-03-06 16:58:59');
+(16, 26, 'iOS', 'dG-wiJ_2_mg:APA91bFobJUSPDttzLc-gbi8FwNn2lsOc7VlmI343LMN3oh2zoceA9FeCXIEesACyM5x7eiCDY51-lPCkSuZoMde_Ade-Hmd-T7zsMItyJd-jdEKsjFKo3mZrpG0hp3fIUhkXrZGxLI_', '2019-03-07 16:31:55');
 
 -- --------------------------------------------------------
 
@@ -392,14 +445,11 @@ CREATE TABLE `vendors` (
 --
 
 INSERT INTO `vendors` (`vendor_id`, `user_id`, `name`, `gstin`, `opening`, `closing`, `address`, `latitude`, `longitude`, `is_closed`, `is_verified`) VALUES
-(1, 5, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(2, 6, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(3, 7, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(4, 8, 'Chhabra Restaurant', 'GSTIN12346', '10:00:00', '17:00:00', 'A 68,69 MX London', 26.95153046, 75.73300934, 'yes', 'no'),
-(5, 9, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(6, 10, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(7, 11, 'KamalIndiaTour', 'GSTIN12345', '00:00:00', '00:00:00', 'A 68,69 MX London', 26.95153046, 26.95153046, 'yes', 'no'),
-(8, 12, 'Chhabra Restaurant', 'GSTIN12346', '10:00:00', '17:00:00', 'A 68,69 MX London', 26.95153046, 75.73300934, 'yes', 'no');
+(13, 34, NULL, NULL, '10:00:00', '21:00:00', NULL, NULL, NULL, NULL, NULL),
+(14, 35, NULL, NULL, '10:00:00', '21:00:00', NULL, NULL, NULL, NULL, NULL),
+(16, 37, NULL, NULL, '10:00:00', '21:00:00', NULL, NULL, NULL, NULL, NULL),
+(19, 40, NULL, NULL, '10:00:00', '21:00:00', NULL, NULL, NULL, NULL, NULL),
+(21, 42, NULL, NULL, '10:00:00', '21:00:00', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -422,7 +472,11 @@ CREATE TABLE `wallets` (
 INSERT INTO `wallets` (`ID`, `user_id`, `balance`, `created_at`, `updated_at`) VALUES
 (1, 1, 2810.00, '2019-02-10 19:24:45', '2018-10-12 11:30:00'),
 (61, 26, 20.00, '2019-02-26 23:19:36', '0000-00-00 00:00:00'),
-(63, 28, 20.00, '2019-03-06 22:56:17', '2019-03-06 22:56:17');
+(68, 34, 0.00, '2019-03-09 00:02:05', '2019-03-09 00:02:05'),
+(69, 35, 0.00, '2019-03-09 00:04:51', '2019-03-09 00:04:51'),
+(71, 37, 0.00, '2019-03-09 09:54:06', '2019-03-09 09:54:06'),
+(74, 40, 0.00, '2019-03-09 12:55:17', '2019-03-09 12:55:17'),
+(76, 42, 0.00, '2019-03-09 13:35:55', '2019-03-09 13:35:55');
 
 -- --------------------------------------------------------
 
@@ -547,7 +601,6 @@ INSERT INTO `wallet_transactions` (`wallet_txid`, `wallet_id`, `amount`, `type`,
 (384, 1, 10.00, 'credit', NULL, NULL, 'referrer amount', '2019-03-06 22:55:43'),
 (386, 1, 30.00, 'debit', NULL, NULL, 'Referral amount', '2019-03-06 22:55:43'),
 (387, 1, 10.00, 'credit', NULL, NULL, 'referrer amount', '2019-03-06 22:56:17'),
-(388, 63, 20.00, 'credit', NULL, NULL, 'referee amount', '2019-03-06 22:56:17'),
 (389, 1, 30.00, 'debit', NULL, NULL, 'Referral amount', '2019-03-06 22:56:17');
 
 --
@@ -657,7 +710,8 @@ ALTER TABLE `user_devices`
 -- Indexes for table `vendors`
 --
 ALTER TABLE `vendors`
-  ADD PRIMARY KEY (`vendor_id`);
+  ADD PRIMARY KEY (`vendor_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `wallets`
@@ -717,7 +771,7 @@ ALTER TABLE `currencies`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 
 --
 -- AUTO_INCREMENT for table `drivers`
@@ -729,7 +783,7 @@ ALTER TABLE `drivers`
 -- AUTO_INCREMENT for table `firebase`
 --
 ALTER TABLE `firebase`
-  MODIFY `firebase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `firebase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `places`
@@ -753,7 +807,7 @@ ALTER TABLE `sockets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `user_devices`
@@ -765,13 +819,13 @@ ALTER TABLE `user_devices`
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `vendor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `vendor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `wallet_transactions`
@@ -844,6 +898,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_devices`
   ADD CONSTRAINT `user_devices_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `vendors`
+--
+ALTER TABLE `vendors`
+  ADD CONSTRAINT `vendors_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `wallets`
