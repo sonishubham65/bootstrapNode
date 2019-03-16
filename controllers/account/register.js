@@ -32,7 +32,8 @@ module.exports = {
                         /**
                          * @description: add a user and Send an email as welcome email.
                          */
-                    
+                        jwt.firstname = req.body.lastname||jwt.name;
+                        jwt.lastname = req.body.lastname||"";
                         var user_id = await account.addUser(trx,jwt,req.body.type,referrer);
                         if(typeof jwt.picture !='undefined'){
                             var pic = {
@@ -68,13 +69,17 @@ module.exports = {
         return new Promise((resolve,reject)=>{
             var keys = {
                 jwt : Joi.string().required().error(()=>"Invalid access token."),
-                type : Joi.number().valid(['customer','driver','vendor']).required().error(()=>"Type could be customer,driver or vendor.")
+                type : Joi.number().valid(['customer','driver','vendor']).required().error(()=>"Type could be customer,driver or vendor."),
+                firstname : Joi.string().error(()=>"First name must be string format."),
+                lastname : Joi.string().error(()=>"First name must be string format."),
             };
             
             
             var fields = {
                 jwt : req.body.jwt||null,
                 type : req.body.type||null,
+                firstname : req.body.firstname||"",
+                lastname : req.body.lastname||"",
             };
             const schema = Joi.object().keys(keys);
             Joi.validate(fields, schema,{stripUnknown:true},function (err, value) { 

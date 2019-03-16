@@ -52,7 +52,8 @@ module.exports = {
              */
             var user = {
                 referrer:referrer,
-                firstname : jwt.name,
+                firstname : jwt.firstname,
+                lastname : jwt.lastname,
                 email : jwt.email,
                 type : type,
                 phone : jwt.phone,

@@ -106,7 +106,6 @@ module.exports = {
                         
                         await trx.commit()
                         var user = await account.getProfile(req.user.ID)
-                        console.log(1)
                         user.created_at = helper.tz(user.created_at,req.headers.timezone)
                         user.updated_at = helper.tz(user.updated_at,req.headers.timezone)
                         
