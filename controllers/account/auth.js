@@ -16,9 +16,15 @@ module.exports = {
             }
             
             var user = await account.getUser(data.ID)
+            
             req.user = user;
             next();
         }catch(err){
+            console.log(err,'-->');
+            if(err.code=='nouser'){
+                err.code = 'unauth';
+                err.message = 'It seems, access token has been expired or not avaialble.'
+            }
             helper.transformer(req,res,err);
         }
         

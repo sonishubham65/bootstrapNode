@@ -214,7 +214,7 @@ module.exports = {
                     resolve(user)
                     
                 }else{
-                    reject({code:"nouser",message:"No user found."})    
+                    reject({code:"nouser",message:"No user found."})
                 }
             }).catch(err=>{
                 reject ({code:"getUser",message:err.message,isSQL:true});

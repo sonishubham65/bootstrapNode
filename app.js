@@ -35,8 +35,25 @@ global.urlUtil = require('url');
 require("moment-timezone")
 moment.tz.setDefault(config.timezone);
 
-// var email = require("./models/account/email");
-// email.welcomeEmail(35);
+
+//var firebase = require("firebase/app");
+// var details = {
+//   apiKey:"AIzaSyBTQFBNuR7U5s3YXlhyIPj_dpzJ9MbDm4Q",
+//   authDomain:"dishpal-59f6e.firebaseapp.com/",
+//   databaseURL:"https://dishpal-59f6e.firebaseio.com",
+//   projectId:"dishpal-59f6e",
+//   storageBucket:"dishpal-59f6e.appspot.com",
+//   messagingSenderId:"522662062176"
+// }
+// firebase.initializeApp(details);
+
+
+// const admin = require('firebase-admin');
+// const functions = require('firebase-functions');
+
+// admin.initializeApp(functions.config().firebase);
+
+//var db = admin.firestore();
 
 var app = express();
 app.use(cors());
