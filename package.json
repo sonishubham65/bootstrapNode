@@ -21,7 +21,7 @@
     "joi": "^14.3.1",
     "joi-image-extension": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
-    "knex": "^0.16.3",
+    "knex": "^0.19.5",
     "md5": "^2.2.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.23",
