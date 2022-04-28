@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@google-cloud/firestore": "^1.1.0",
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "concat-stream": "^2.0.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
